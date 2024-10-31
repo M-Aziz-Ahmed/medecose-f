@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Confirm Order{% endblock title %}
+{% block body %}
+<h2>Confirm Your Order</h2>
+<div>
+    <h3>Items in Cart:</h3>
+    <ul>
+        {% for item_id, quantity in cart_items.items %}
+            <li>{{ item_id }} (Quantity: {{ quantity }})</li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Order</button>
+    </form>
+</div>
+{% endblock body %}
